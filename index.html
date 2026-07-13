@@ -63,10 +63,10 @@ header{
 .intro b{color:var(--ink);font-weight:600;}
 .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
 .card{
-  display:flex;flex-direction:column;justify-content:space-between;gap:1.6rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
   text-decoration:none;color:inherit;background:var(--card);
-  border:1px solid var(--line);border-radius:16px;padding:1.4rem;
-  min-height:150px;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+  border:1px solid var(--line);border-radius:16px;padding:1.25rem 1.4rem;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
 }
 .card:hover{transform:translateY(-3px);border-color:var(--purple);box-shadow:0 12px 30px rgba(98,21,114,.12);}
 .card .label{
@@ -127,29 +127,17 @@ a:focus-visible{outline:2px solid var(--purple);outline-offset:3px;}
     </a>
 
     <a class="card" href="#youtube">
-      <span class="label">Watch</span>
-      <div>
-        <div class="name">YouTube</div>
-        <div class="desc">Walkthroughs &amp; talks</div>
-      </div>
+      <span class="name">YouTube</span>
       <span class="go" aria-hidden="true">&rarr;</span>
     </a>
 
     <a class="card" href="#x">
-      <span class="label">Follow</span>
-      <div>
-        <div class="name">X / Twitter</div>
-        <div class="desc">Notes &amp; updates</div>
-      </div>
+      <span class="name">X / Twitter</span>
       <span class="go" aria-hidden="true">&rarr;</span>
     </a>
 
     <a class="card" href="#instagram">
-      <span class="label">Follow</span>
-      <div>
-        <div class="name">Instagram</div>
-        <div class="desc">Behind the scenes</div>
-      </div>
+      <span class="name">Instagram</span>
       <span class="go" aria-hidden="true">&rarr;</span>
     </a>
   </div>
