@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>First Epoch — Get started in AI research</title>
+<meta name="description" content="A practical orientation for getting started in AI research. Start with the Handbook.">
+<meta name="theme-color" content="#621572">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+
+<!-- Social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="First Epoch">
+<meta property="og:title" content="First Epoch — Get started in AI research">
+<meta property="og:description" content="A practical orientation for getting started in AI research. Start with the Handbook.">
+<meta property="og:image" content="assets/logo.png">
+<meta property="og:url" content="https://firstepoch.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="First Epoch — Get started in AI research">
+<meta name="twitter:description" content="A practical orientation for getting started in AI research. Start with the Handbook.">
+<meta name="twitter:image" content="assets/logo.png">
+
+<style>
+@font-face{
+  font-family:"Altone";
+  src:url("assets/Altone-VF.ttf") format("truetype");
+  font-weight:100 900;font-display:swap;
+}
+:root{
+  --purple:#621572;--purple-deep:#4a0f56;
+  --bg:#f6f3f7;--card:#ffffff;--ink:#221a26;--muted:#71657a;
+  --line:#e6dde9;--mono:#8a5c96;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#130f16;--card:#1c151f;--ink:#eee6f0;--muted:#a294a8;
+    --line:#2f2634;--purple:#c98fd6;--purple-deep:#a865b8;--mono:#c39bce;}
+}
+:root[data-theme="light"]{--bg:#f6f3f7;--card:#fff;--ink:#221a26;--muted:#71657a;
+  --line:#e6dde9;--purple:#621572;--purple-deep:#4a0f56;--mono:#8a5c96;}
+:root[data-theme="dark"]{--bg:#130f16;--card:#1c151f;--ink:#eee6f0;--muted:#a294a8;
+  --line:#2f2634;--purple:#c98fd6;--purple-deep:#a865b8;--mono:#c39bce;}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.55;
+}
+.wrap{max-width:880px;margin:0 auto;padding:clamp(2.4rem,6vw,4.5rem) 1.5rem 3rem;}
+header{
+  display:flex;align-items:flex-start;gap:1.1rem;
+  padding-bottom:clamp(2rem,5vw,3rem);margin-bottom:clamp(2rem,5vw,3rem);
+  border-bottom:1px solid var(--line);
+}
+.mark{width:52px;height:52px;border-radius:13px;flex:none;box-shadow:0 3px 14px rgba(98,21,114,.26);}
+.head-txt{flex:1;}
+.wordmark{
+  font-family:"Altone",sans-serif;font-weight:600;font-size:1.35rem;
+  letter-spacing:-.01em;margin:.15rem 0 .7rem;
+}
+.intro{font-size:1.02rem;color:var(--muted);max-width:60ch;margin:0;text-wrap:pretty;}
+.intro b{color:var(--ink);font-weight:600;}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
+.card{
+  display:flex;flex-direction:column;justify-content:space-between;gap:1.6rem;
+  text-decoration:none;color:inherit;background:var(--card);
+  border:1px solid var(--line);border-radius:16px;padding:1.4rem;
+  min-height:150px;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.card:hover{transform:translateY(-3px);border-color:var(--purple);box-shadow:0 12px 30px rgba(98,21,114,.12);}
+.card .label{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mono);
+}
+.card .name{font-family:"Altone",sans-serif;font-weight:600;font-size:1.15rem;letter-spacing:-.01em;}
+.card .desc{font-size:.9rem;color:var(--muted);margin-top:.3rem;}
+.card .go{font-family:"Altone",sans-serif;color:var(--purple);font-size:1.2rem;transition:transform .2s ease;}
+.card:hover .go{transform:translateX(5px);}
+.card.feature{
+  grid-column:1 / -1;background:var(--purple);
+  background-image:linear-gradient(135deg,#732487,#560f66);
+  border-color:transparent;color:#f4e9f7;
+  flex-direction:row;align-items:flex-end;justify-content:space-between;
+  min-height:auto;padding:1.7rem 1.9rem;
+}
+.card.feature:hover{box-shadow:0 16px 40px rgba(98,21,114,.35);}
+.card.feature .label{color:#d7b6e0;}
+.card.feature .name{font-size:1.9rem;margin-top:.5rem;}
+.card.feature .desc{color:#e6d3ec;max-width:44ch;}
+.card.feature .go{color:#fff;font-size:1.7rem;}
+.card.feature .ftxt{display:flex;flex-direction:column;}
+footer{
+  margin-top:clamp(2rem,5vw,3rem);padding-top:1.4rem;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;
+  font-family:"Altone",sans-serif;font-size:.85rem;color:var(--muted);
+}
+footer a{color:var(--purple);text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+a:focus-visible{outline:2px solid var(--purple);outline-offset:3px;}
+@media (max-width:560px){.grid{grid-template-columns:1fr;}.card.feature{flex-direction:column;align-items:flex-start;gap:1rem;}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="mark" src="assets/logo.png" alt="First Epoch logo" width="52" height="52">
+    <div class="head-txt">
+      <div class="wordmark">first epoch</div>
+      <p class="intro">
+        We believe AI is a rare field of scientific inquiry — <b>remarkably open to
+        anyone with the resources, yet scarce in mentorship.</b> This is a practical
+        orientation for getting started in AI research. Start below.
+      </p>
+    </div>
+  </header>
+
+  <div class="grid">
+    <a class="card feature" href="/handbook">
+      <div class="ftxt">
+        <span class="label">Primary resource</span>
+        <span class="name">The Handbook</span>
+        <span class="desc">An opinionated, practical guide to finding your footing in the field.</span>
+      </div>
+      <span class="go" aria-hidden="true">&rarr;</span>
+    </a>
+
+    <a class="card" href="#youtube">
+      <span class="label">Watch</span>
+      <div>
+        <div class="name">YouTube</div>
+        <div class="desc">Walkthroughs &amp; talks</div>
+      </div>
+      <span class="go" aria-hidden="true">&rarr;</span>
+    </a>
+
+    <a class="card" href="#x">
+      <span class="label">Follow</span>
+      <div>
+        <div class="name">X / Twitter</div>
+        <div class="desc">Notes &amp; updates</div>
+      </div>
+      <span class="go" aria-hidden="true">&rarr;</span>
+    </a>
+
+    <a class="card" href="#instagram">
+      <span class="label">Follow</span>
+      <div>
+        <div class="name">Instagram</div>
+        <div class="desc">Behind the scenes</div>
+      </div>
+      <span class="go" aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+
+  <footer>
+    <span>First Epoch</span>
+    <span>Made by <a href="#">Alice&nbsp;Heiman</a> &amp; <a href="#">Maty&nbsp;Bohacek</a></span>
+  </footer>
+</div>
+</body>
+</html>
